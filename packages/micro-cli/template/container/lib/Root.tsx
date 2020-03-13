@@ -1,21 +1,32 @@
-import React, { FC } from 'react'
+import React, { FC, Component } from 'react'
 import { IDemoRootProps } from './core'
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { List, Edit } from './components'
-import { Provider } from './core'
+import { useStore } from './core'
 
-export const Root: FC<IDemoRootProps> = ({
-  rootPath,
-  api,
-  access
-}) => {
+
+const Root: FC<IDemoRootProps> = (props) => {
+  
+  const { updateStore } = useStore()
+
+  updateStore(props)
+  
   return (
-    <Provider store={{ rootPath, api, access }}>
-      <Router basename={rootPath}>
-        <Route path={'/edit/:id'} exact component={Edit} />
-        <Route path="/" exact component={List} />
-        <Redirect to="/" />
-      </Router>
-    </Provider>
+    <Router basename={props.rootPath}>
+      <Switch>
+        <Route path={'/edit/:id'} component={Edit} />
+        <Route path="/" component={List} />
+      </Switch>
+    </Router>
   )
+}
+
+export class RootComponent extends Component<IDemoRootProps> {
+
+  render () { return <Root {...this.props} /> }
+  // single-spa warn: rootComponent should implement componentDidCatch to avoid
+  // accidentally unmounting the entire single-spa application.
+  componentDidCatch () {
+
+  }
 }

@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 
 export const List: FC<RouteComponentProps> = () => {
 
-  const { store, updateStore } = useStore()
+  const { store, updateStore } = useStore(store => ({
+    api: store.api,
+    list: store.list,
+    access: store.access
+  }))
 
   useEffect(() => {
     store.api.listFetch().then((res) => {

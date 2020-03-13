@@ -1,5 +1,6 @@
-import { ReactStore } from '@coloration/micro-framework'
-import { IDemoRootProps, IListItemDto } from '.'
+import { ReactHookStore } from '@coloration/micro-framework'
+import { IListItemDto } from './api'
+import { IDemoRootProps } from './rootProps'
 
 
 export interface IDemoStore extends IDemoRootProps {
@@ -7,11 +8,10 @@ export interface IDemoStore extends IDemoRootProps {
 }
 
 
-export const S = new ReactStore<IDemoStore>({
+export const S = new ReactHookStore<IDemoStore>({
   list: []
 })
 
 
-export const Provider = S.provider
 export const useStore = S.useStore
 

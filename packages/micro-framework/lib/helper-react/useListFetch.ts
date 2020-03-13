@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { catchError } from '../helper'
+import { catchError } from '../helper/api'
 
 export function useListFetch<P = any, R = any> (listFetcher: any) {
   function fetcher (p: P) {

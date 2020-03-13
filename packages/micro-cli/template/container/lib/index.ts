@@ -5,15 +5,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import singleSpaReact from 'single-spa-react'
 
-import { Root } from './Root'
+import { RootComponent } from './Root'
 import { demoModule } from './core'
 
-
+require('./assets/styles/index.css')
 
 const lifecycles = singleSpaReact({
   React,
   ReactDOM,
-  rootComponent: Root as any,
+  rootComponent: RootComponent,
   domElementGetter () {
     return document.getElementById(demoModule.mountId)
   }
@@ -32,4 +32,4 @@ export const unmount = [
 ]
 
 export * from './core'
-export { Root }
+export { RootComponent }

@@ -5,8 +5,6 @@ import { pathPrefix } from '@coloration/micro-framework'
 
 import { IDemoRootProps, DemoApi, demoModule } from './core'
 
-require('./styles/index.css')
-
 export const biPortalProps: IDemoRootProps = {
   api: new DemoApi({ baseUrl: 'a http host' }),
   rootPath: '/',

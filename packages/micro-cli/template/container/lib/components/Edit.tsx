@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useCallback } from 'react'
-import { useStore } from '../core/store'
+import { useStore } from '../core'
 import { useHistory, useParams } from 'react-router-dom'
 import { IListItemDto } from '../core'
 
@@ -9,7 +9,7 @@ export const Edit: FC<IEditProps> = () => {
 
   const history = useHistory()
   const params = useParams<{ id: string }>()
-  const { store } = useStore()
+  const { store } = useStore(store => ({ list: store.list }))
 
   const [item, setItem] = useState<IListItemDto | null>(null)
 

@@ -1,1 +1,1 @@
-export * from './ContainerProp'
+export * from './ContainerProps'
