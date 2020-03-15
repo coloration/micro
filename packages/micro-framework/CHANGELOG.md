@@ -1,13 +1,15 @@
 # ChangeLog
 
 
-## 0.0.8
+## 0.0.8 - 0.0.9
 
 *2020-03-13*
 
 ### Fix
 
 GlobalModule - GSM instance is not unique in global. mount it to `global` variable
+
+### Opt
 
 ## 0.0.5 - 0.0.7
 
@@ -23,7 +25,7 @@ GlobalModule - GSM instance is not unique in global. mount it to `global` variab
   useGlobalModule will trigger when any field changed in the module.state. GSM is a common
   module manager only implemented with native JS. useReactGlobalModule is a connector for React.
 
-- repace `ReactStore` with `ReactHookStore`. 
+- repace `ReactStore` with `HookStore`. 
 
 - remove some unuse module
 
