@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@coloration/kit": "^0.0.7",
-    "@coloration/micro-framework": "^0.0.7",
+    "@coloration/micro-framework": "^0.0.9",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",

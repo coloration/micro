@@ -1,20 +1,38 @@
 {
   "name": "@coloration/micro-framework",
   "version": "0.0.9",
-  "main": "lib/index.ts",
+  "main": "lib/index.js",
+  "types": "./types",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc & jest"
+  },
   "dependencies": {
     "@coloration/asker": "^0.8.1",
     "@coloration/kit": "^0.0.7",
+    "@types/lodash": "^4.14.149",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "single-spa": "^4.4.1",
     "single-spa-react": "^2.10.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/react": "^16.9.10",
     "@types/react-dom": "^16.9.3",
-    "@types/single-spa-react": "^2.8.3"
+    "@types/single-spa-react": "^2.8.3",
+    "babel-loader": "^8.0.6",
+    "terser-webpack-plugin": "^2.3.5",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "gitHead": "625c66277222a8a0f0541c2b7f749f018b53bd3b"
 }

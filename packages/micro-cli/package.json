@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "WangBinyu <406279919@qq.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "micro": "./bin/micro.js"
   },

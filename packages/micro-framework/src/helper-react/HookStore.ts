@@ -65,6 +65,7 @@ export class ReactHookStore<T extends PlainObject> {
     const updateStore = useCallback((payload: Partial<T>) => {
       
       for (let key in payload) {
+        
         if (!this.strict || key in this.store) {
           this.store[key] = payload[key]
         }

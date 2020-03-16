@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { catchError } from '../helper/api'
+// import { catchError } from '../helper/api'
 
 export function useListFetch<P = any, R = any> (listFetcher: any) {
   function fetcher (p: P) {
@@ -22,7 +22,7 @@ export function useListFetch<P = any, R = any> (listFetcher: any) {
     })
     .catch((e) => {
       setLoading(false)
-      catchError(e)
+      // catchError(e)
     })
 
   }, [parameters])

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { catchError } from "../helper/api"
+// import { catchError } from "../helper/api"
 
 export function useLoadingFetch<T = any, K = any> (
   params: T, 
@@ -24,7 +24,7 @@ export function useLoadingFetch<T = any, K = any> (
     })
     .catch(e => {
       setLoading(false)
-      catchError(e)
+      // catchError(e)
       error && error(e)
     }) 
 
