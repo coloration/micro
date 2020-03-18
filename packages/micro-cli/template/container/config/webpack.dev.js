@@ -1,9 +1,8 @@
 var path = require('path')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'development',
-  devtool: 'sourceMap',
+  devtool: 'source-map',
   entry: path.resolve(__dirname, '../lib/DEV.ts'),
   output: {
     filename: 'bundle.js',
@@ -24,14 +23,7 @@ module.exports = {
       index: 'index.html',
     }
   },
-  plugins: [
-    // 拆分css 文件
-    new MiniCssExtractPlugin({
-      filename: 'main.css',
-      // chunkFilename: '[id].css',
-      ignoreOrder: false
-    })
-  ],
+  plugins: [],
   module: {
     rules: [
       {
@@ -48,20 +40,12 @@ module.exports = {
             '@babel/plugin-proposal-class-properties',
           ],
         },
-        test: /\.tsx?$/,
-        // exclude: /node_modules/,
+        test: /\.(j|t)sx?$/,
       }, {
         test: /\.css$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development',
-            },
-          },
-          {
-            loader: 'css-loader',
-          },
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {

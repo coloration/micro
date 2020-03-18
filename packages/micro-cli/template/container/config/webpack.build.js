@@ -1,37 +1,19 @@
 var path = require('path')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'production',
-  devtool: 'sourceMap',
+  devtool: 'source-map',
   entry: path.resolve(__dirname, '../lib/index.ts'),
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '../dist'),
-    publicPath: '/dist'
+    publicPath: '/dist',
+    libraryTarget: 'umd'
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json']
   },
-  devServer: {
-    open: true,
-    port: 9000,
-    noInfo: true,
-    host: '0.0.0.0',
-    publicPath: '/dist',
-    contentBase: path.join(__dirname, '../public'),
-    historyApiFallback: {
-      index: 'index.html',
-    }
-  },
-  plugins: [
-    // 拆分css 文件
-    // new MiniCssExtractPlugin({
-    //   filename: '[name].css',
-    //   chunkFilename: '[id].css',
-    //   ignoreOrder: false
-    // })
-  ],
+  plugins: [],
   module: {
     rules: [
       {
@@ -48,20 +30,12 @@ module.exports = {
             '@babel/plugin-proposal-class-properties',
           ],
         },
-        test: /\.tsx?$/,
-        // exclude: /node_modules/,
+        test: /\.(j|t)sx?$/,
       }, {
         test: /\.css$/,
         use: [
-          // {
-            // loader: MiniCssExtractPlugin.loader,
-            // options: {
-            //   hmr: process.env.NODE_ENV === 'development',
-            // },
-          // },
-          {
-            loader: 'css-loader',
-          },
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
           {
             loader: 'postcss-loader',
             options: {
@@ -72,7 +46,6 @@ module.exports = {
             },
           }
         ]
-        // exclude: /node_modules/,
       }, {
         test: /\.(png|jpg|jpeg|gif|webp)$/,
         use: [{ loader: 'url-loader' }]

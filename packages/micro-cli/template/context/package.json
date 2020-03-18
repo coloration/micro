@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "dependencies": {
-    "@coloration/micro-framework": "^0.0.2",
+    "@coloration/micro-framework": "^0.0.9",
     "container-demo": "^0.0.1",
     "single-spa": "^4.4.1"
   },

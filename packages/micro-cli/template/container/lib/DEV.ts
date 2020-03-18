@@ -5,7 +5,7 @@ import { pathPrefix } from '@coloration/micro-framework'
 
 import { IDemoRootProps, DemoApi, demoModule } from './core'
 
-export const biPortalProps: IDemoRootProps = {
+export const demoProps: IDemoRootProps = {
   api: new DemoApi({ baseUrl: 'a http host' }),
   rootPath: '/',
   access: {
@@ -17,8 +17,8 @@ function mount () {
   registerApplication(
     demoModule.name,
     () => import('./index'),
-    pathPrefix(biPortalProps.rootPath),
-    biPortalProps
+    pathPrefix(demoProps.rootPath),
+    demoProps
   )
   
   start()

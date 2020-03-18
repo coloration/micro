@@ -1,13 +1,13 @@
 
 
 import { registerApplication, unloadApplication, start, getAppNames } from 'single-spa'
-import { registerModule } from '@coloration/micro-framework'
+import { SCM } from '@coloration/micro-framework'
 import { demoModule } from 'container-demo/lib/core'
 import { demoProps } from './props'
 
 export function mount () {
   // 注册数据
-  registerModule(demoModule.name, demoModule)
+  SCM.mount(demoModule.name, demoModule)
 
   registerApplication(
     demoModule.name, 
