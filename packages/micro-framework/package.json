@@ -1,5 +1,5 @@
 {
-  "name": "@coloration/micro-framework",
+  "name": "@coloration/ocean",
   "version": "0.0.9",
   "main": "lib/index.js",
   "types": "./types",
